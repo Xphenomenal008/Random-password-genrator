@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=.
+     initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(210, 227, 23);
+ 
+        }
+        .cointaner{
+            width: 50%;
+            height: 250px;
+            margin: 90px;
+            /* border: 2px solid bisque; */
+            padding: 40px;
+            background-color: rgb(50, 27, 70);
+            
+        }
+        .dispaly img{
+            height: 5%;
+             width: 30px;
+            
+        }
+
+
+
+        .dispaly input{
+             
+            height: 50px;
+            width: 80%;
+            padding:10px;
+            border: none;
+           background-color: hsl(80, 84%, 37%);
+           font-size: 30px;
+           font-weight: 200;
+           font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 
+           
+        }
+        #btn button{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+ height: 30px;
+ width: 100px;
+ padding: 5px;
+ font-size:15px;
+ color: #23152b;
+ margin-top: 20px;
+ border-radius: 2px;
+ background-color: hsl(74, 68%, 37%);
+ font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+   
+        }
+        .cointaner h1{
+            color: #dfdf15;
+            margin: 0px;
+            padding-bottom: 10px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+        
+    </style>
+</head>
+<body>
+   <div class="cointaner">
+    <h1>RANDOM PASSWORD GENRATOR</h1>
+    <div class="dispaly">
+        <input type="text"  id="password" placeholder="CLICK TO GENRATE " >
+        <img src="logo.jpg" alt="" id="photu" onclick="copy()">
+    </div>
+    <div id="btn">
+    <button onclick="genrate()">CLICK HERE</button>
+</div>
+   </div> 
+</body>
+<script>
+    let passwordbox=document.querySelector("#password")
+    let photu=document.getElementById("photu")
+    let lenght=12;
+    let uppercase="ABCDEFGHIJKLMNOPQRSTWXYZ"
+    let lowercase="abcdefghijklmnopqrstwxyz"
+    let number="1234567890"
+    let special="!@#$%^&*()_+"
+    let all="ABCDEFGHIJKLMNOPQRSTWXYZabcdefghijklmnopqrstwxyz1234567890!@#$%^&*()_+"
+function  genrate(){
+    let password="";
+     password += uppercase[Math.floor(Math.random()*uppercase.length)];
+     password += lowercase[Math.floor(Math.random()* lowercase.length)];
+     password += number[Math.floor(Math.random()* number.length)];
+     password += special[Math.floor(Math.random()* special.length)];
+
+    while(lenght>password.length){
+         password+=all[Math.floor(Math.random()*all.length)];
+    }
+    passwordbox.value=password;
+}
+ function copy(){
+passwordbox.select()
+document.execCommand("copy");
+
+ }
+</script>
+</html>
